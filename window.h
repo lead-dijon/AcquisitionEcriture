@@ -34,7 +34,7 @@ public slots:
 private:
 
     void keyPressEvent(QKeyEvent *event);
-    void exit(void);
+    void exit_(void);
 };
 
 

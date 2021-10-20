@@ -26,7 +26,7 @@ void Window::keyPressEvent(QKeyEvent *event)
                 application->prepare();
                 break;
             case STATE_STOP :
-                exit();
+                exit_();
                 break;
             default :
                 break;
@@ -34,7 +34,7 @@ void Window::keyPressEvent(QKeyEvent *event)
         }
 
 
-        if(event->key() == Qt::Key_Escape) exit();
+        if(event->key() == Qt::Key_Escape) exit_();
     }
 }
 
@@ -48,6 +48,12 @@ void Window::elapsed(void)
         application->prepare();
         application->state = STATE_RUN;
         if(application->itemStimuli[application->index].sound.compare("N/A") != 0)
+            if(QFile(application->itemStimuli[application->index].sound).exists() == false)
+            {
+                application->logs("[" + application->itemStimuli[application->index].sound + "] " + "ERROR : " + "Unable to open sound file");
+                QMessageBox::critical(nullptr, tr("Erreur"), "[" + application->itemStimuli[application->index].sound + "]" + "\n" + tr("Unable to open sound file"));
+                exit(EXIT_FAILURE);
+            }
             player.setMedia(QUrl::fromLocalFile(application->itemStimuli[application->index].sound));
         player.play();
         timer.start(application->durationStimuli);
@@ -84,7 +90,7 @@ void Window::elapsed(void)
 }
 
 
-void Window::exit()
+void Window::exit_()
 {
     int code;
 

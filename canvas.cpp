@@ -57,6 +57,7 @@ void Canvas::paintEvent(QPaintEvent *event)
                 QImage *image = new QImage();
                 if(image->load(window->application->itemStimuli[window->application->index].image) == false)
                 {
+                    window->application->logs("[" + window->application->itemStimuli[window->application->index].image + "] " + "ERROR : " + "Unable to open image file");
                     QMessageBox::critical(nullptr, Application::tr("Erreur"), Application::tr("Fichier non trouvé : ") + "\"" + window->application->itemStimuli[window->application->index].image + "\"");
                     exit(EXIT_FAILURE);
                 }

@@ -1,0 +1,26 @@
+# Parameter;Value ([ms] if unit)
+@fixation;500
+@stimuli;2000
+
+# Images/Text;Sounds
+abricot;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_abricot.mp3
+ananas;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_ananas.mp3
+banane;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_banane.mp3
+cerise;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_cerise.mp3
+chataigne;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_chataigne.mp3
+citron;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_citron.mp3
+clementine;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_clementine.mp3
+figue;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_figue.mp3
+fraise;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_fraise.mp3
+framboise;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_framboise.mp3
+groseille;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_groseille.mp3
+kiwi;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_kiwi.mp3
+mangue;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_mangue.mp3
+mure;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_mure.mp3
+myrtille;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_myrtille.mp3
+noix_de_coco;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_noix_de_coco.mp3
+orange;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_orange.mp3
+poire;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_poire.mp3
+pomme;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_pomme.mp3
+prune;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_prune.mp3
+raisin;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_raisin.mp3

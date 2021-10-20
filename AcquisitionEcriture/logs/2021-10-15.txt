@@ -1,3 +1,0 @@
-[23:39:38] AcquisitionEcriture runned
-[23:39:38] Screen width : 1920 pixels
-[23:39:38] Screen width : 1200 pixels

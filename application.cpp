@@ -53,7 +53,7 @@ void Application::initialize()
     fileLogs = new QFile(nameLogs);
     if(fileLogs->open(QIODevice::Append) == false)
     {
-        QMessageBox::critical(nullptr, tr("Erreur"), "[" + nameLogs + "]" + "\n" + tr("Impossible d'ouvrir le fichier de traces "));
+        QMessageBox::critical(nullptr, tr("Erreur"), "[" + nameLogs + "]" + "\n" + tr("Unable to open log file"));
         exit(EXIT_FAILURE);
     }
 
@@ -71,7 +71,7 @@ void Application::initialize()
     if(fileCfg->open(QIODevice::ReadOnly) == false)
     {
         logs("[" + Parameters.nameCfg + "] " + "ERROR : " + "Unable to open configuration file");
-        QMessageBox::critical(nullptr, tr("Erreur"), "[" + Parameters.nameCfg + "]" + "\n" + tr("Impossible d'ouvrir le fichier de configuration"));
+        QMessageBox::critical(nullptr, tr("Erreur"), "[" + Parameters.nameCfg + "]" + "\n" + tr("Unable to open configuration file"));
         exit(EXIT_FAILURE);
     }
     else logs("[" + Parameters.nameCfg + "] " + "Configuration file");

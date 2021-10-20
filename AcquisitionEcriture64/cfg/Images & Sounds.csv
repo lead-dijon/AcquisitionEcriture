@@ -1,0 +1,26 @@
+# Parameter;Value ([ms] if unit)
+@fixation;500
+@stimuli;2000
+
+# Images/Text;Sounds
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_abricot.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_abricot.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_ananas.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_ananas.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_banane.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_banane.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_cerise.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_cerise.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_chataigne.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_chataigne.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_citron.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_citron.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_clementine.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_clementine.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_figue.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_figue.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_fraise.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_fraise.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_framboise.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_framboise.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_groseille.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_groseille.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_kiwi.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_kiwi.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_mangue.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_mangue.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_mure.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_mure.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_myrtille.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_myrtille.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_noix_de_coco.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_noix_de_coco.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_orange.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_orange.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_poire.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_poire.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_pomme.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_pomme.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_prune.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_prune.mp3
+C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Images\Evolution_raisin.png;C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\Sounds\Evolution_raisin.mp3

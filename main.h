@@ -14,9 +14,9 @@ Version : %1 %2\n \
 \n \
 Author : \n \
 Laboratoire d'Etude de l'Apprentissage et du Développement\n \
-CNRS - Université de Bourgogne.fr\n \
+CNRS - Université de Bourgogne Franche Comté.fr\n \
 \n \
-Contact : Patrick.Bard@u-bourgogne.fr")
+Contact : patrick.bard@cnrs.fr")
 
 
 #define MESSAGE_START tr("Welcome\n\nPress the space bar to begin")
