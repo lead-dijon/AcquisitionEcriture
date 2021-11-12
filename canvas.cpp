@@ -26,7 +26,7 @@ void Canvas::paintEvent(QPaintEvent *event)
         font.setWeight(QFont::Bold);
         painter.setFont(font);
         painter.setBrush(Qt::black);
-        painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, MESSAGE_START, nullptr);
+        painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_start, nullptr);
         break;
     case STATE_FIXATION :
         painter.fillRect(event->rect(), Qt::gray);
@@ -35,9 +35,9 @@ void Canvas::paintEvent(QPaintEvent *event)
         painter.setFont(font);
         painter.setBrush(Qt::black);
         if(window->application->itemStimuli[window->application->index].image.compare("N/A") != 0)
-            painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height() / 2), Qt::AlignVCenter | Qt::AlignHCenter, MESSAGE_FIXATION, nullptr);
+            painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height() / 2), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_fixation, nullptr);
         else
-            painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, MESSAGE_FIXATION, nullptr);
+            painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_stop, nullptr);
         break;
     case STATE_RUN :
     case STATE_SAVE :

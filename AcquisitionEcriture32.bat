@@ -15,6 +15,7 @@ mkdir       "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\Acquis
 
 xcopy /S /Y /V "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\release\AcquisitionEcriture.exe" "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\AcquisitionEcriture32\"
 
+xcopy    /Y /V "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\Labels.csv" "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\AcquisitionEcriture32"
 xcopy /S /Y /V "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\cfg\*" "C:\pbard\Scientifique\Projets\AcquisitionEcriture\Programmes\AcquisitionEcriture32\cfg\"
 
 

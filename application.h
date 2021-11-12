@@ -19,7 +19,9 @@ public:
 
     QElapsedTimer timer;
     QFile *fileLogs;
-    int type;
+    QString message_start;
+    QString message_fixation;
+    QString message_stop;
     QList<Stimuli> itemStimuli;
     QString baseResults;
     QString headerResultsTime;

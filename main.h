@@ -23,10 +23,11 @@ Contact : patrick.bard@cnrs.fr")
 
 #define MESSAGE_FIXATION tr("+")
 
-#define MESSAGE_STOP tr("Thank you for tour participation\n\nPress the space bar to terinate")
+#define MESSAGE_STOP tr("Thank you for your participation\n\nPress the space bar to terminate")
 
 
-#define BASE_LOGS ".\\logs\\"
+#define BASE_LOGS   ".\\logs\\"
+#define FILE_LABELS ".\\Labels.csv"
 
 
 #define THRESHOLD  0.1

@@ -8,6 +8,9 @@
 
 Application::Application(int &argv, char **args) : QApplication(argv, args)
 {
+    message_start = MESSAGE_START;
+    message_fixation = MESSAGE_FIXATION;
+    message_stop = MESSAGE_STOP;
     durationFixation = DURATION_FIXATION;
     durationStimuli  = DURATION_STIMULI;
     state            = STATE_START;
@@ -39,6 +42,8 @@ void Application::initialize()
 
     Parameters Parameters;
     Stimuli current;
+    QDir *dirResults;
+    QFile *fileLabels;
     QFile *fileCfg;
     QString nameLogs = BASE_LOGS + QDateTime::currentDateTime().toString("yyyy-MM-dd") + ".txt";
     QString nameResults;
@@ -61,6 +66,78 @@ void Application::initialize()
 
     logs("Screen width : " + QString("%1").arg(QApplication::desktop()->screenGeometry().width())  +" pixels");
     logs("Screen width : " + QString("%1").arg(QApplication::desktop()->screenGeometry().height()) +" pixels");
+
+
+    fileLabels = new QFile(FILE_LABELS);
+
+    if(fileLabels->exists() == true)
+    {
+        if(fileLabels->open(QIODevice::ReadOnly) == false)
+        {
+            QMessageBox::critical(nullptr, tr("Erreur"), "[" + nameLogs + "]" + "\n" + tr("Unable to open log file"));
+            exit(EXIT_FAILURE);
+        }
+
+        message_start = "";
+        message_fixation = "";
+        message_stop = "";
+
+        while(fileLabels->atEnd() == false)
+        {
+
+            lineContent = fileLabels->readLine();
+            lineIndex++;
+            words = lineContent.split(";");
+
+            if(words.isEmpty() == true) continue;
+
+            while(words.contains("", Qt::CaseSensitive) == true) words.removeOne("");
+
+            while(words.first().isEmpty() == true) words.removeFirst();
+
+            if(words.first().at(0) == '\r') continue;
+
+            if(words.first().at(0) == '\n') continue;
+
+            if(words.first().at(0) == '#') continue;
+
+            if(words.first().at(0) == '#') continue;
+
+            while(words.last().isEmpty() == true) words.removeLast();
+
+            if(words.last() == "\n") words.removeLast();
+
+            if(words.size() != 2)
+            {
+                logs("[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "] " + "ERROR : "
+                    + "Parameter count unequals to 2 (" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
+                QMessageBox::critical(nullptr, tr("Erreur"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
+                                             + tr("Nombre de paramètres different de 2 ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
+                return;
+            }
+
+            word = words.first();
+
+            if(word.at(0) == '@')
+            {
+                if(word.compare("@start") == 0)
+                {
+                    words.removeFirst();
+                    message_start += words.first();
+                }
+                else if(word.compare("@fixation") == 0)
+                {
+                    words.removeFirst();
+                    message_fixation += words.first();
+                }
+                else if(word.compare("@stop") == 0)
+                {
+                    words.removeFirst();
+                    message_stop += words.first();
+                }
+            }
+        }
+    }
 
 
     Parameters.exec();
@@ -167,11 +244,20 @@ void Application::initialize()
     std::random_shuffle(itemStimuli.begin(), itemStimuli.end());
 
 
+    dirResults = new QDir(baseResults);
+
+
     dateResults = QDateTime::currentDateTime().toString("yyyy-MM-dd");
     timeResults = QDateTime::currentDateTime().toString("HH-mm-ss");
 
 
-    baseResults = Parameters.baseResults + "\\" + Parameters.subject + " - " + dateResults + " - " + timeResults;
+    baseResults = Parameters.baseResults + QDir::separator() + Parameters.subject + " - " + dateResults + " - " + timeResults;
+    if(dirResults->mkdir(baseResults) == false)
+    {
+        logs("[" + nameResults + "] " + "ERROR : " + "Unable to create results directory");
+        QMessageBox::critical(nullptr, tr("Erreur"), "[" + nameResults + "]" + "\n" + tr("Unable to create results directory"));
+        exit(EXIT_FAILURE);
+    }
 
 
     headerResultsPosition = tr("Sujet")                                + ";" + Parameters.subject                               + "\n"
@@ -194,12 +280,12 @@ void Application::initialize()
                           + tr("Pression tangentielle")                + "\n";
 
 
-    nameResults = baseResults + ".csv";
+    nameResults = baseResults + QDir::separator() + Parameters.subject + ".csv";
     fileResultsTime = new QFile(nameResults);
     if(fileResultsTime->open(QIODevice::WriteOnly) == false)
     {
         logs("[" + nameResults + "] " + "ERROR : " + "Unable to open results file");
-        QMessageBox::critical(nullptr, tr("Erreur"), "[" + nameResults + "]" + "\n" + tr("Impossible d'ouvrir le fichier"));
+        QMessageBox::critical(nullptr, tr("Error"), "[" + nameResults + "]" + "\n" + tr("Unable to open results file"));
         exit(EXIT_FAILURE);
     }
     else logs("Response Time results file is \"" + nameResults + "\"");
@@ -227,21 +313,21 @@ void Application::prepare()
 
 
     if (itemStimuli[index].image.compare("N/A") != 0)
-        baseResults_ = baseResults + " - " + itemStimuli[index].image.split("\\").last().split(".").first();
+        baseResults_ = baseResults + QDir::separator() + itemStimuli[index].image.split(QDir::separator()).last().split('.').first() + "0_" + baseResults.split('.').first().split(QDir::separator()).last().split(" - ").first();
     else
-        baseResults_ = baseResults + " - " + itemStimuli[index].sound.split("\\").last().split(".").first();
+        baseResults_ = baseResults + QDir::separator() + itemStimuli[index].sound.split(QDir::separator()).last().split('.').first() + "0_" + baseResults.split('.').first().split(QDir::separator()).last().split(" - ").first();
     nameResults = baseResults_ + ".csv";
     fileResultsPositions = new QFile(nameResults);
     if(fileResultsPositions->open(QIODevice::ReadWrite) == false)
     {
         logs("[" + nameResults + "] " + "ERROR : " + "Unable to open results file");
-        QMessageBox::critical(nullptr, tr("Erreur"), "[" + nameResults + "]" + "\n" + tr("Impossible d'ouvrir le fichier"));
+        QMessageBox::critical(nullptr, tr("Error"), "[" + nameResults + "]" + "\n" + tr("Unable to open results file"));
         Application::exit(EXIT_FAILURE);
     }
     else logs("Positions results file is \"" + nameResults + "\"");
 
 
-    headerResult = QString(headerResultsPosition.toLatin1()).arg(itemStimuli[index].image.split("\\").last()).arg(itemStimuli[index].sound.split("\\").last());
+    headerResult = QString(headerResultsPosition.toLatin1()).arg(itemStimuli[index].image.split(QDir::separator()).last()).arg(itemStimuli[index].sound.split(QDir::separator()).last());
     fileResultsPositions->write(headerResult.toLatin1(), headerResult.size());
     fileResultsPositions->flush();
 
@@ -268,7 +354,7 @@ void Application::compute()
     QString bodyResult;
 
 
-    bodyResult = QString("%1;%2").arg(itemStimuli[index].image.split("\\").last()).arg(itemStimuli[index].sound.split("\\").last());
+    bodyResult = QString("%1;%2").arg(itemStimuli[index].image.split(QDir::separator()).last()).arg(itemStimuli[index].sound.split(QDir::separator()).last());
     if(recordTimestamp.size() != 0) bodyResult += QString(";%1\n").arg(recordTimestamp.first(), 8, 'd', 0, ' ');
     else bodyResult += QString(";NaN\n");
     fileResultsTime->write(bodyResult.toLatin1(), bodyResult.size());
