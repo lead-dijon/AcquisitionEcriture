@@ -37,7 +37,7 @@ void Canvas::paintEvent(QPaintEvent *event)
         if(window->application->itemStimuli[window->application->index].image.compare("N/A") != 0)
             painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height() / 2), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_fixation, nullptr);
         else
-            painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_stop, nullptr);
+            painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_fixation, nullptr);
         break;
     case STATE_RUN :
     case STATE_SAVE :
@@ -84,7 +84,7 @@ void Canvas::paintEvent(QPaintEvent *event)
         font.setWeight(QFont::Bold);
         painter.setFont(font);
         painter.setBrush(Qt::black);
-        painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, MESSAGE_STOP, nullptr);
+        painter.drawText(QRect(0, 0, QApplication::desktop()->geometry().width(), QApplication::desktop()->geometry().height()), Qt::AlignVCenter | Qt::AlignHCenter, window->application->message_stop, nullptr);
         break;
     default:
         window->application->logs("ERROR : Unknown state (" + QString("%1").arg(window->application->state) + ")");
