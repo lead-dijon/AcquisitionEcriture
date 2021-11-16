@@ -189,9 +189,9 @@ void Application::initialize()
         {
             logs("[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "] " + "ERROR : "
                 + "Parameter count unequals to 2 (" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
-            QMessageBox::critical(nullptr, tr("Erreur"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
-                                         + tr("Nombre de paramètres different de 2 ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
-            return;
+            QMessageBox::critical(nullptr, tr("Error"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
+                                         + tr("Parameter count unequals to 2 ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
+            exit(EXIT_FAILURE);
         }
 
         word = words.first();
@@ -206,9 +206,9 @@ void Application::initialize()
                 {
                     logs("[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "] " + "ERROR : "
                               + "Parameter \"fixation\" negative or null (" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
-                    QMessageBox::critical(nullptr, tr("Erreur"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
-                                                 + tr("Paramètre \"fixation\" négatif ou nul ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
-                    return;
+                    QMessageBox::critical(nullptr, tr("Error"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
+                                                 + tr("arameter \"fixation\" negative or null ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
+                    exit(EXIT_FAILURE);
                 }
             }
             else if(word.compare("@stimuli") == 0)
@@ -219,9 +219,9 @@ void Application::initialize()
                 {
                     logs("[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "] " + "ERROR : "
                         + "Parameter \"stimuli\" negative or null (" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
-                    QMessageBox::critical(nullptr, tr("Erreur"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
-                                                 + tr("Paramètre \"stimuli\" négatif ou nul ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
-                    return;
+                    QMessageBox::critical(nullptr, tr("Error"), "[" + Parameters.nameCfg + ":" + QString("%1").arg(lineIndex) + "]" + "\n"
+                                                 + tr("Parameter \"stimuli\" negative or null ") + "(" + words.replaceInStrings("\n", "", Qt::CaseSensitive).join(", ") + ")");
+                    exit(EXIT_FAILURE);
                 }
             }
         }

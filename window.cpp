@@ -25,6 +25,9 @@ void Window::keyPressEvent(QKeyEvent *event)
                 timer.start(application->durationFixation);
                 application->prepare();
                 break;
+            case STATE_RUN :
+                process();
+                break;
             case STATE_STOP :
                 exit_();
                 break;
@@ -54,38 +57,44 @@ void Window::elapsed(void)
                 QMessageBox::critical(nullptr, tr("Erreur"), "[" + application->itemStimuli[application->index].sound + "]" + "\n" + tr("Unable to open sound file"));
                 exit(EXIT_FAILURE);
             }
-            player.setMedia(QUrl::fromLocalFile(application->itemStimuli[application->index].sound));
+        player.setMedia(QUrl::fromLocalFile(application->itemStimuli[application->index].sound));
         player.play();
         timer.start(application->durationStimuli);
         time.restart();
         break;
     case STATE_RUN :
-        application->state = STATE_SAVE;
-        application->compute();
-        application->index++;
-        if(application->index >= application->itemStimuli.size())
-        {
-            application->state = STATE_STOP;
-        }
-        else
-        {
-            QImage image(QSize(QApplication::desktop()->geometry().width() / 2, QApplication::desktop()->geometry().height() / 2), QImage::Format_RGB32);
-            QPainter painter(&image);
-            QPen pen = painter.pen();
-            pen.setColor(QColorConstants::Blue);
-            pen.setWidth(10);
-            painter.setPen(pen);
-            painter.fillRect(QRectF(0,0,QApplication::desktop()->geometry().width() / 2, QApplication::desktop()->geometry().height() / 2),Qt::white);
-            painter.scale(0.5, 0.5);
-            for(int point = 0; point <application->recordX.length(); point++)
-                painter.drawPoint(application->recordX[point], QApplication::desktop()->geometry().height() - application->recordY[point]);
-            image.save(application->fileResultsImage);
-            application->state = STATE_FIXATION;
-            timer.start(application->durationFixation);
-        }
+        process();
         break;
     default :
         break;
+    }
+}
+
+
+void Window::process()
+{
+    application->state = STATE_SAVE;
+    application->compute();
+    application->index++;
+    if(application->index >= application->itemStimuli.size())
+    {
+        application->state = STATE_STOP;
+    }
+    else
+    {
+        QImage image(QSize(QApplication::desktop()->geometry().width() / 2, QApplication::desktop()->geometry().height() / 2), QImage::Format_RGB32);
+        QPainter painter(&image);
+        QPen pen = painter.pen();
+        pen.setColor(QColorConstants::Blue);
+        pen.setWidth(10);
+        painter.setPen(pen);
+        painter.fillRect(QRectF(0,0,QApplication::desktop()->geometry().width() / 2, QApplication::desktop()->geometry().height() / 2),Qt::white);
+        painter.scale(0.5, 0.5);
+        for(int point = 0; point <application->recordX.length(); point++)
+            painter.drawPoint(application->recordX[point], QApplication::desktop()->geometry().height() - application->recordY[point]);
+        image.save(application->fileResultsImage);
+        application->state = STATE_FIXATION;
+        timer.start(application->durationFixation);
     }
 }
 

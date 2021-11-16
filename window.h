@@ -29,6 +29,7 @@ public:
 public slots:
 
     void elapsed(void);
+    void process(void);
 
 
 private:
